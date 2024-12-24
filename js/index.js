@@ -225,7 +225,7 @@ function showOk() {
         message.classList.remove('hidden');
         message.style.opacity = 1;
 
-        // Điều hướng sau 3 giây
+        
         setTimeout(() => {
             window.location.href = 'main.html';
         }, 3000);
@@ -246,14 +246,13 @@ function showDeo() {
         message.classList.remove('hidden');
         message.style.opacity = 1;
 
-        // Điều hướng sau 3 giây
+        
         setTimeout(() => {
             window.location.href = 'main.html';
         }, 3000);
     }, mainElements.length * 200 + 500);
 }
 
-// Thêm đoạn mã sau vào cuối file
 var audio = new Audio('../media/index/background.mp3');
 audio.loop = true;
 audio.volume = 0.4;
