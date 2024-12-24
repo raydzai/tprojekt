@@ -211,7 +211,7 @@ var s = document.readyState;
 if (s === 'complete' || s === 'loaded' || s === 'interactive') init();
 else document.addEventListener('DOMContentLoaded', init, false);
 
-function showMessage() {
+function showOk() {
     const mainElements = document.querySelectorAll('.main > *');
     mainElements.forEach((el, index) => {
         el.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
@@ -228,7 +228,7 @@ function showMessage() {
     }, mainElements.length * 200 + 500);
 }
 
-function showMessageDeo() {
+function showDeo() {
     const mainElements = document.querySelectorAll('.main > *');
     mainElements.forEach((el, index) => {
         el.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
