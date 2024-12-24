@@ -1,6 +1,5 @@
- 
 window.requestAnimationFrame =
-window.__requestAnimationFrame ||
+    window.__requestAnimationFrame ||
     window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
     window.mozRequestAnimationFrame ||
@@ -35,9 +34,7 @@ var rand = Math.random;
 ctx.fillStyle = "rgba(0,0,0,1)";
 ctx.fillRect(0, 0, width, height);
 
-
-
-var mouse = { x: width / 2, y: height / 2 }; // Vị trí chuột ban đầu
+var mouse = { x: width / 2, y: height / 2 };
 canvas.addEventListener('mousemove', function (e) {
     var rect = canvas.getBoundingClientRect();
     mouse.x = (e.clientX - rect.left) * koef;
@@ -50,18 +47,15 @@ var applyMouseEffect = function (points, strength) {
         let dy = mouse.y - points[i][1];
         let dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < 200) { // Tăng phạm vi ảnh hưởng lên 200px
-            let force = strength * (1 - dist / 200); // Lực kéo mạnh hơn với phạm vi lớn
+        if (dist < 200) {
+            let force = strength * (1 - dist / 200);
             points[i][0] += dx * force;
             points[i][1] += dy * force;
         }
     }
 };
 
-
-
 var heartPosition = function (rad) {
-    //return [Math.sin(rad), Math.cos(rad)];
     return [Math.pow(Math.sin(rad), 3), 
         -(15 * Math.cos(rad) - 5 * 
         Math.cos(2 * rad) - 2 * 
@@ -83,11 +77,11 @@ var pointsOrigin = [];
 var i;
 var dr = mobile ? 0.3 : 0.1;
 for (i = 0; i < Math.PI * 2; i += dr) 
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 210, 13, 0, -150)); // Đẩy lên 50px
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 210, 13, 0, -150));
 for (i = 0; i < Math.PI * 2; i += dr) 
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 150, 9, 0, -150));  // Đẩy lên 50px
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 150, 9, 0, -150));
 for (i = 0; i < Math.PI * 2; i += dr) 
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 90, 5, 0, -150));   // Đẩy lên 50px
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 90, 5, 0, -150));
 
 var heartPointsCount = pointsOrigin.length;
 
@@ -124,28 +118,23 @@ var config = {
 };
 
 var time = 0;
-var targetScale = 1; // Kích thước ổn định cuối cùng
-var scale = 0; // Kích thước ban đầu
-var scaleSpeed = 0.01; // Tốc độ tăng kích thước
+var targetScale = 1;
+var scale = 0;
+var scaleSpeed = 0.01;
 
-
-// Thêm các biến trạng thái hover
 let isHoverYes = false;
 let isHoverNo = false;
 
-// Đặt trạng thái hover YES
 window.highlightHeart = function () {
     isHoverYes = true;
     isHoverNo = false;
 };
 
-// Đặt trạng thái hover NO
 window.dimHeart = function () {
     isHoverNo = true;
     isHoverYes = false;
 };
 
-// Reset trạng thái hover
 window.resetHeart = function () {
     isHoverYes = false;
     isHoverNo = false;
@@ -159,7 +148,6 @@ var loop = function () {
 
     pulse(scale, scale);
 
-    // Áp dụng thao tác chuột
     applyMouseEffect(targetPoints, isHoverYes ? 1.2 : 0.7);
 
     ctx.fillStyle = "rgba(0,0,0,.1)";
@@ -187,8 +175,7 @@ var loop = function () {
             }
         }
 
-        // Điều chỉnh tốc độ theo trạng thái hover
-        let speedMultiplier = isHoverYes ? 2 : 1; // Tăng tốc độ khi hover YES
+        let speedMultiplier = isHoverYes ? 2 : 1;
         speedMultiplier = isHoverNo ? 1 : .5;
         u.vx += -dx / length * u.speed * speedMultiplier;
         u.vy += -dy / length * u.speed * speedMultiplier;
@@ -204,13 +191,12 @@ var loop = function () {
             N.y -= config.traceK * (N.y - T.y);
         }
 
-        // Điều chỉnh màu sắc theo trạng thái hover
         ctx.fillStyle = isHoverYes
-            ? `hsla(${~~(360 * rand())},100%,70%,.5)` // Màu sáng rực khi hover YES
+            ? `hsla(${~~(360 * rand())},100%,70%,.5)`
             : isHoverNo
             ? ["rgba(128,128,128,.5)", "rgba(75,0,130,.5)", "rgba(0,0,139,.5)"][
                   ~~(rand() * 3)
-              ] // Màu xám, tím, xanh đậm khi hover NO
+              ]
             : u.f;
 
         for (k = 0; k < u.trace.length; k++) {
@@ -220,7 +206,6 @@ var loop = function () {
 
     window.requestAnimationFrame(loop, canvas);
 };
-
 loop();
 };
 
