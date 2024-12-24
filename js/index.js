@@ -224,6 +224,11 @@ function showOk() {
         message.textContent = 'Tưởng chọn đ, làm gì mà được =))';
         message.classList.remove('hidden');
         message.style.opacity = 1;
+
+        // Điều hướng sau 3 giây
+        setTimeout(() => {
+            window.location.href = 'main.html';
+        }, 3000);
     }, mainElements.length * 200 + 500);
 }
 
@@ -240,5 +245,10 @@ function showDeo() {
         message.textContent = 'Bày đặt chọn có, mắc ói';
         message.classList.remove('hidden');
         message.style.opacity = 1;
+
+        // Điều hướng sau 3 giây
+        setTimeout(() => {
+            window.location.href = 'main.html';
+        }, 3000);
     }, mainElements.length * 200 + 500);
 }
