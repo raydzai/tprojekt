@@ -265,6 +265,7 @@ document.addEventListener('mouseenter', function() {
 });
 
 function playBackgroundAudio() {
+    console.log("Playing background audio");
     if (audio.paused) {
         audio.play();
     }
