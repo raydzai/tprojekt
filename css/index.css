@@ -133,18 +133,3 @@ a:hover {
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
 }
-
-@media (max-width: 600px) {
-    .question-text {
-        font-size: 6vw;
-    }
-
-    a {
-        font-size: 4vw;
-        padding: 10px 20px;
-    }
-
-    #message {
-        font-size: 8vw;
-    }
-}
