@@ -1,3 +1,7 @@
+function playBackgroundSound() {
+    var audio = document.getElementById('background-sound');
+    audio.play();
+}
 window.requestAnimationFrame =
     window.__requestAnimationFrame ||
     window.requestAnimationFrame ||
