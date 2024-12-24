@@ -80,7 +80,7 @@ for (i = 0; i < Math.PI * 2; i += dr)
     pointsOrigin.push(scaleAndTranslate(heartPosition(i), 210, 13, 0, -150));
 for (i = 0; i < Math.PI * 2; i += dr) 
     pointsOrigin.push(scaleAndTranslate(heartPosition(i), 150, 9, 0, -150));
-for (i = 0; i < Math.PI * 2; i += dr) 
+for (i = 0; Math.PI * 2; i += dr) 
     pointsOrigin.push(scaleAndTranslate(heartPosition(i), 90, 5, 0, -150));
 
 var heartPointsCount = pointsOrigin.length;
