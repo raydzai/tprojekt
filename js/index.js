@@ -252,3 +252,14 @@ function showDeo() {
         }, 3000);
     }, mainElements.length * 200 + 500);
 }
+
+// Thêm đoạn mã sau vào cuối file
+var audio = new Audio('../media/index/background.mp3');
+audio.loop = true;
+audio.volume = 0.4;
+
+function playBackgroundAudio() {
+    if (audio.paused) {
+        audio.play();
+    }
+}
