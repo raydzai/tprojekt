@@ -194,9 +194,7 @@ var loop = function () {
         ctx.fillStyle = isHoverYes
             ? `hsla(${~~(360 * rand())},100%,70%,.5)`
             : isHoverNo
-            ? ["rgba(128,128,128,.5)", "rgba(75,0,130,.5)", "rgba(0,0,139,.5)"][
-                  ~~(rand() * 3)
-              ]
+            ? ["rgba(128,128,128,.5)", "rgba(75,0,130,.5)", "rgba(0,0,139,.5)"][~~(rand() * 3)]
             : u.f;
 
         for (k = 0; k < u.trace.length; k++) {
@@ -212,3 +210,23 @@ loop();
 var s = document.readyState;
 if (s === 'complete' || s === 'loaded' || s === 'interactive') init();
 else document.addEventListener('DOMContentLoaded', init, false);
+
+function displayMessage(messageText) {
+    document.querySelector('.main').style.transition = 'opacity 1s ease-in-out';
+    document.querySelector('.main').style.opacity = '0';
+    setTimeout(function() {
+        document.querySelector('.main').style.display = 'none';
+        var message = document.getElementById('message');
+        message.textContent = messageText;
+        message.classList.remove('hidden');
+        message.style.opacity = '1';
+    }, 1000);
+}
+
+document.getElementById('ok-button').addEventListener('click', function() {
+    displayMessage('Your Ok Message Here');
+});
+
+document.getElementById('deo-button').addEventListener('click', function() {
+    displayMessage('Your Deo Message Here');
+});
