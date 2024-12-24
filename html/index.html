@@ -16,12 +16,14 @@
         <div class="ui-container">
             <p class="question-text">Tiếp tục không?</p>
             <div class="button-container">
-                <a id="ok-button" onmouseenter="playHoverSound()"
+                <a id="ok-button"
                     onmouseover="highlightHeart()" 
-                    onmouseout="resetHeart()">Ok</a>
-                <a id="deo-button" onmouseenter="playHoverSound()"
+                    onmouseout="resetHeart()"
+                    onclick="showOk()">Ok</a>
+                <a id="deo-button"
                     onmouseover="dimHeart()" 
-                    onmouseout="resetHeart()">Deo</a>
+                    onmouseout="resetHeart()"
+                    onclick="showDeo()">Deo</a>
             </div>
         </div>
     </div>

@@ -1,4 +1,3 @@
-
 window.requestAnimationFrame =
     window.__requestAnimationFrame ||
     window.requestAnimationFrame ||
@@ -212,32 +211,36 @@ var s = document.readyState;
 if (s === 'complete' || s === 'loaded' || s === 'interactive') init();
 else document.addEventListener('DOMContentLoaded', init, false);
 
-function displayMessage(messageText) {
-    document.querySelector('.main').style.transition = 'opacity 1s ease-in-out';
-    document.querySelector('.main').style.opacity = '0';
-    setTimeout(function() {
+function showMessage() {
+    const mainElements = document.querySelectorAll('.main > *');
+    mainElements.forEach((el, index) => {
+        el.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
+        el.style.opacity = 0;
+    });
+    setTimeout(() => {
         document.querySelector('.main').style.display = 'none';
-        var message = document.getElementById('message');
-        message.textContent = messageText;
+        const message = document.getElementById('message');
+        message.textContent = 'Tưởng chọn đ, làm gì mà được =))';
         message.classList.remove('hidden');
-        message.style.opacity = '1';
-
-        setTimeout(function() {
-            message.style.transition = 'opacity .5s ease-in-out';
-            message.style.opacity = '0';
-
-            setTimeout(function() {
-                window.location.href = 'main.html';
-            }, 500);
-        }, 3000);
-    }, 1000);
+        setTimeout(() => {
+            message.style.opacity = 1;
+        }, 0);
+    }, mainElements.length * 200 + 500);
 }
 
-document.getElementById('ok-button').addEventListener('click', function() {
-    displayMessage('Tưởng chọn không chứ, chọn đ được đâu kkk');
-});
-
-document.getElementById('deo-button').addEventListener('click', function() {
-    displayMessage('Có không gì cũng d à =))');
-});
-
+function showMessageDeo() {
+    const mainElements = document.querySelectorAll('.main > *');
+    mainElements.forEach((el, index) => {
+        el.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
+        el.style.opacity = 0;
+    });
+    setTimeout(() => {
+        document.querySelector('.main').style.display = 'none';
+        const message = document.getElementById('message');
+        message.textContent = 'Bày đặt chọn có, mắc ói';
+        message.classList.remove('hidden');
+        setTimeout(() => {
+            message.style.opacity = 1;
+        }, 0);
+    }, mainElements.length * 200 + 500);
+}
