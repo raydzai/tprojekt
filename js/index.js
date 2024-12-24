@@ -220,6 +220,17 @@ function displayMessage(messageText) {
         message.textContent = messageText;
         message.classList.remove('hidden');
         message.style.opacity = '1';
+
+        // Wait for 5 seconds, then fade out the message
+        setTimeout(function() {
+            message.style.transition = 'opacity 0.5s ease-in-out';
+            message.style.opacity = '0';
+
+            // After fade out, redirect to main.html
+            setTimeout(function() {
+                window.location.href = 'main.html';
+            }, 500);
+        }, 3000);
     }, 1000);
 }
 
