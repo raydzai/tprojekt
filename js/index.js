@@ -224,9 +224,9 @@ function displayMessage(messageText) {
 }
 
 document.getElementById('ok-button').addEventListener('click', function() {
-    displayMessage('Your Ok Message Here');
+    displayMessage('Tưởng chọn không chứ, chọn đ được đâu kkk');
 });
 
 document.getElementById('deo-button').addEventListener('click', function() {
-    displayMessage('Your Deo Message Here');
+    displayMessage('Có không gì cũng d à =))');
 });
