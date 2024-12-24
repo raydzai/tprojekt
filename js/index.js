@@ -217,14 +217,13 @@ function showOk() {
         el.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
         el.style.opacity = 0;
     });
+
     setTimeout(() => {
         document.querySelector('.main').style.display = 'none';
         const message = document.getElementById('message');
         message.textContent = 'Tưởng chọn đ, làm gì mà được =))';
         message.classList.remove('hidden');
-        setTimeout(() => {
-            message.style.opacity = 1;
-        }, 0);
+        message.style.opacity = 1;
     }, mainElements.length * 200 + 500);
 }
 
@@ -234,13 +233,12 @@ function showDeo() {
         el.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
         el.style.opacity = 0;
     });
+
     setTimeout(() => {
         document.querySelector('.main').style.display = 'none';
         const message = document.getElementById('message');
         message.textContent = 'Bày đặt chọn có, mắc ói';
         message.classList.remove('hidden');
-        setTimeout(() => {
-            message.style.opacity = 1;
-        }, 0);
+        message.style.opacity = 1;
     }, mainElements.length * 200 + 500);
 }
