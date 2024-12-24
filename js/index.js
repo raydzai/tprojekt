@@ -253,9 +253,16 @@ function showDeo() {
     }, mainElements.length * 200 + 500);
 }
 
+
 var audio = new Audio('../media/index/background.mp3');
 audio.loop = true;
 audio.volume = 0.4;
+
+document.addEventListener('mouseenter', function() {
+    if (audio.paused) {
+        audio.play();
+    }
+});
 
 function playBackgroundAudio() {
     if (audio.paused) {
