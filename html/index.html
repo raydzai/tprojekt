@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
@@ -8,23 +8,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-  </head>
-  
-  <body>
-        <div class="main"><canvas id="heart"></canvas>
+</head>
+
+<body>
+    <div class="main">
+        <canvas id="heart"></canvas>
         <div class="ui-container">
-          <p class="question-text">Tiếp tục không?</p>
-          <div class="button-container"><a 
-              onmouseover="highlightHeart()" 
-              onmouseout="resetHeart()">Ok</a>
-          <a 
-              onmouseover="dimHeart()" 
-              onmouseout="resetHeart()">Deo</a></div>
-          
-      </div></div>
-        
-      
-      
-        <script src="../js/index.js"></script>
-  </body>
+            <p class="question-text">Tiếp tục không?</p>
+            <div class="button-container">
+                <a 
+                    onmouseover="highlightHeart()" 
+                    onmouseout="resetHeart()">Ok</a>
+                <a 
+                    onmouseover="dimHeart()" 
+                    onmouseout="resetHeart()">Deo</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
 </html>
