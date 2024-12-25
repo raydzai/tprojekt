@@ -242,7 +242,7 @@ function showDeo() {
     setTimeout(() => {
         document.querySelector('.main').style.display = 'none';
         const message = document.getElementById('message');
-        message.textContent = 'Bày đặt chọn có, mắc ói';
+        message.textContent = '? Chịu luôn, chọn đ kìa';
         message.classList.remove('hidden');
         message.style.opacity = 1;
 
