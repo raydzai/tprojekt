@@ -1,5 +1,5 @@
 document.querySelector('audio').volume = 0.4;
-      
+
 const duration = 3 * 1000;
 const end = Date.now() + duration;
 
@@ -16,7 +16,6 @@ const end = Date.now() + duration;
     if (Date.now() < end) {
         requestAnimationFrame(frame);
     } else {
-        
         setInterval(() => {
             confetti({
                 particleCount: 5,
@@ -29,3 +28,7 @@ const end = Date.now() + duration;
         }, 500);
     }
 }());
+
+setTimeout(() => {
+    document.querySelector('.next-page').classList.add('show');
+}, 5000);
