@@ -1,0 +1,25 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#background {
+    position: fixed;
+    margin: 0;
+    width: 95%;
+    padding: 3%;
+    border: 0;
+    transform: translateY(-7vw) scale(1.1);
+    z-index: 2;
+    pointer-events: none;
+}
