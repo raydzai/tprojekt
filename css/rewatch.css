@@ -1,0 +1,58 @@
+@media (max-width: 768px) {
+    body {
+        display: none;
+    }
+}
+
+@font-face {
+    font-family: 'Bagel';
+    src: url('../media/font/DFVN-Bagel-Fat-One.otf');
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Chiều cao của toàn bộ viewport */
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo video phủ toàn bộ khung */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Đặt video dưới các phần tử khác */
+}
+
+#video-container .blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.001); /* Làm tối lớp phủ */
+    backdrop-filter: blur(10px); /* Tăng độ mờ */
+    -webkit-backdrop-filter: blur(10px); /* Tương thích trình duyệt WebKit */
+    z-index: 1; /* Đặt lớp blur lên trên video */
+}
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-family: 'Bagel';
+    font-size: 10vw;
+    text-align: center;
+    z-index: 2; /* Đặt lớp text lên trên video */
+}
