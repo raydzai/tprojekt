@@ -1,3 +1,10 @@
+@media (max-width: 768px) {
+    body {
+        display: none;
+    }
+}
+
+
 html, body {
     height: 100%;
     margin: 0;
@@ -62,4 +69,9 @@ html, body {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+.disappear {
+    opacity: 0;
+    transition: opacity 1s ease;
 }
