@@ -8,7 +8,7 @@ if (/Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
     document.body.innerHTML = "<h1 style='color: black; text-align: center;'>Truy cập từ thiết bị di động không được phép.</h1>";
 }
 
-
+const video = new Request('../media/index/background.mp3');
 
 window.requestAnimationFrame =
     window.__requestAnimationFrame ||
