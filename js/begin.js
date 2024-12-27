@@ -242,7 +242,7 @@ function showOk() {
             message.style.transition = 'opacity 1s ease';
             message.style.opacity = 0;
             setTimeout(() => {
-                window.location.href = 'main.html';
+                window.location.href = 'cont.html';
             }, 1000);
         }, 2000);
     }, mainElements.length * 200 + 500);
