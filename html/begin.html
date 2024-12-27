@@ -33,22 +33,6 @@
     <audio autoplay loop id="au">
         <source src="../media/index/background.mp3" type="audio/mp3">
     </audio>
-    <script>
-        function fadeOutAudio() {
-            var audio = document.getElementById('au');
-            var fadeOutInterval = setInterval(function () {
-                if (audio.volume > 0.1) {
-                    audio.volume -= 0.1;
-                } else {
-                    audio.volume = 0;
-                    clearInterval(fadeOutInterval);
-                }
-            }, 300); 
-        }
-
-        document.getElementById('ok-button').addEventListener('click', fadeOutAudio);
-        document.getElementById('deo-button').addEventListener('click', fadeOutAudio);
-    </script>
     <script src="../js/begin.js"></script>
 </body>
 </html>
