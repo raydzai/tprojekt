@@ -113,10 +113,11 @@ a:hover {
     color: white;
     font-family: Montserrat, sans-serif;
     text-align: center;
-    opacity: 0;
-    transition: opacity .5s ease-in-out;
-    animation: flyInAndGlow .5s ease-out forwards; 
+    opacity: 1;
+    transition: opacity 1s ease-in-out; 
+    animation: flyInAndGlow 0.5s ease-out forwards;
 }
+
 
 @keyframes glowEffect {
     0% {
