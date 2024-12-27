@@ -227,8 +227,12 @@ function showOk() {
 
         
         setTimeout(() => {
-            window.location.href = 'main.html';
-        }, 3000);
+            message.style.transition = 'opacity 1s ease';
+            message.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = 'main.html';
+            }, 1000);
+        }, 2000);
     }, mainElements.length * 200 + 500);
 }
 
@@ -248,8 +252,26 @@ function showDeo() {
 
         
         setTimeout(() => {
-            window.location.href = 'main.html';
-        }, 3000);
+            message.style.transition = 'opacity 1s ease';
+            message.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = 'main.html';
+            }, 1000);
+        }, 2000);
     }, mainElements.length * 200 + 500);
 }
 
+function fadeOutAudio() {
+    var audio = document.getElementById('au');
+    var fadeOutInterval = setInterval(function () {
+        if (audio.volume > 0.1) {
+            audio.volume -= 0.1;
+        } else {
+            audio.volume = 0;
+            clearInterval(fadeOutInterval);
+        }
+    }, 300); 
+}
+
+document.getElementById('ok-button').addEventListener('click', fadeOutAudio);
+document.getElementById('deo-button').addEventListener('click', fadeOutAudio);
