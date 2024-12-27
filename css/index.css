@@ -4,6 +4,10 @@
     }
 }
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../media/font/Montserrat-Black.ttf');
+}
 
 html, body {
     background-color: black;
