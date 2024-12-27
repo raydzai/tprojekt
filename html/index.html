@@ -8,10 +8,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="../media/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../media/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../media/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../media/favicon/site.webmanifest">
 </head>
 <body>
     <div class="container">
         <p><a href="begin.html">Nhấp vào đây đi cdl</a></p>
     </div>
+    <script>
+        if (/Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            document.body.style.backgroundColor = "white";
+            document.body.style.display = "flex";
+            document.body.style.justifyContent = "center";
+            document.body.style.alignItems = "center";
+            document.body.style.height = "100vh";
+            document.body.style.margin = "0";
+            document.body.innerHTML = "<h1 style='color: black; text-align: center;'>Truy cập từ thiết bị di động không được phép.</h1>";
+        }
+
+    </script>
 </body>
 </html>
