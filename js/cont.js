@@ -17,7 +17,7 @@ const end = Date.now() + duration;
         spread: 360,
         origin: { x: Math.random(), y: 0 },
         colors: ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#a0c4ff', '#bdb2ff', '#ffc6ff'],
-        zIndex: 3 // Đặt z-index của confetti thấp hơn video nền
+        zIndex: 3 
     });
 
     if (Date.now() < end) {
@@ -30,7 +30,7 @@ const end = Date.now() + duration;
                 spread: 360,
                 origin: { x: Math.random(), y: 0 },
                 colors: ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#a0c4ff', '#bdb2ff', '#ffc6ff'],
-                zIndex: 1 // Đặt z-index của confetti thấp hơn video nền
+                zIndex: 1 
             });
         }, 500);
     }
@@ -42,31 +42,31 @@ setTimeout(() => {
 
 document.querySelector('.next-page').addEventListener('click', function(event) {
     event.preventDefault();
-    const bgSound = document.querySelector('#background-sound'); // Đối tượng âm thanh
+    const bgSound = document.querySelector('#background-sound'); 
     let fadeInterval;
-    const fadeDuration = 3000; // Thời gian giảm âm thanh (ms)
-    const fadeStep = 0.01; // Mỗi lần giảm âm lượng bao nhiêu
-    const stepTime = fadeDuration * fadeStep; // Thời gian mỗi bước
+    const fadeDuration = 3000; 
+    const fadeStep = 0.01; 
+    const stepTime = fadeDuration * fadeStep; 
 
     if (bgSound) {
         let volume = bgSound.volume;
         fadeInterval = setInterval(() => {
             if (volume > fadeStep) {
-                volume -= fadeStep; // Giảm âm lượng
-                bgSound.volume = Math.max(volume, 0); // Đảm bảo không xuống dưới 0
+                volume -= fadeStep; 
+                bgSound.volume = Math.max(volume, 0); 
             } else {
-                clearInterval(fadeInterval); // Dừng giảm âm lượng khi đạt 0
-                bgSound.pause(); // Tạm dừng âm thanh
+                clearInterval(fadeInterval); 
+                bgSound.pause(); 
             }
         }, stepTime);
     }
 
-    document.querySelectorAll('.container, #background-video, #confetti-container').forEach(element => {
+    document.querySelectorAll('.container, #background, #confetti-container').forEach(element => {
         element.classList.add('disappear');
     });
 
-    // Tăng thời gian chuyển trang để khớp với thời gian fade-out âm thanh
+    
     setTimeout(() => {
-        window.location.href = this.href; // Chuyển trang
-    }, 1000); // Fade âm thanh + thời gian hiệu ứng
+        window.location.href = this.href; 
+    }, 1000); 
 });
