@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="../media/font/MJ-HolidayMaria-Regular-1.ttf" as="font" type="font/ttf" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/cont.css">
     <title>HPBD, Nhu Tam</title>
     <meta name="description" content="Chúc mừng sinh nhật Như Tâm.">
     <link rel="icon" type="image/png" sizes="32x32" href="../media/favicon/favicon-32x32.png">
 </head>
 <body>
+    <div id="confetti-container"></div>
     <div class="container">
         <p>.</p>
         <video id="background" autoplay muted>
             <source src="../media/cont/background.webm" type="video/webm">
         </video>
+        <a class="next-page" href="../html/rewatch.html">Xem lại mày với tao đã làm được gì trong năm nay nhé?</a>
         <audio id="background-audio" src="../media/cont/thucgiac.mp3" autoplay></audio>
     </div>
-
+    
     <script async src="../js/cont.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 </body>
 </html>
