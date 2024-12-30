@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="context">
+            <h1>mày đã bùn 117 lần</h1>
+            <p>... trong năm nay. Mày xứng đáng nhận được danh hiệu người đàn bà có cây cà lem si cu la.</p>
+        </div>
+        <p id="icon">😔</p>
+    </div>
+    <style>
+        html, body {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @font-face {
+            font-family: 'Bagel';
+            src: url('../media/font/DFVN-Bagel-Fat-One.otf');
+        }
+
+        @font-face {
+            font-family: 'BeauSans';
+            src: url('../media/font/BT-BeauSans-Regular.ttf');
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            transform: translateY(-3vw);
+        }
+
+        #icon {
+            font-size: 15vw;
+            padding-left: 5%
+        }
+
+        .context h1{
+            font-family: "Bagel";
+            font-weight: 500;
+            font-size: 7vw;
+            margin-bottom: 5%;
+        }
+
+        .context p {
+            font-family: "BeauSans";
+            font-weight: 400;
+            font-size: 1.2vw;
+            text-align: right;
+        }
+    </style>
+</body>
+</html>
