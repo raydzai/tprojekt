@@ -8,6 +8,13 @@ if (/Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
     document.body.innerHTML = "<h1 style='color: black; text-align: center;'>Truy cập từ thiết bị di động không được phép.</h1>";
 }
 
+const au = new Request('../media/hoahdsf.mp3');
+au.volume = 0.4;
+
+fetch(au).then(response => {
+    console.log('Audio preloaded');
+});
+
 window.addEventListener("load", () => { // WORK
     const h1 = document.querySelector(".starter h1");
     const p = document.querySelector(".starter p");
@@ -123,14 +130,6 @@ window.addEventListener("load", () => { // WORK
 
     const updateButtons = () => {
         prevButton.disabled = currentIndex === 0;
-
-        if (currentIndex === typ.length - 1) {
-            nextButton.innerHTML = "✓";
-            nextButton.classList.add("finish");
-        } else {
-            nextButton.innerHTML = "→";
-            nextButton.classList.remove("finish");
-        }
     };
 
     const showContainer = () => {
@@ -162,11 +161,25 @@ window.addEventListener("load", () => { // WORK
             setTimeout(() => updateContent(currentIndex), 500);
             updateButtons();
         } else if (currentIndex === typ.length - 1) {
+            container.style.opacity = 0;
             container.classList.add("fade-out");
+            navigation.classList.add("fade-out");
+
             setTimeout(() => {
-                container.style.display = "none";
-                navigation.style.display = "none";
+                changeh1("À quên...");
+                changep("Bạn còn có một tin nhắn nữa! <br> Tin nhắn từ raydzaihjhjhjhjhj");
+                starter.classList.remove("fade-out");
+                starter.classList.add("show");
             }, 500);
+
+            setTimeout(() => {
+                starter.classList.add("fade-out");
+            }, 5000);
+        
+            setTimeout(() => {
+                const sn = document.querySelector(".sn");
+                sn.classList.add("show")
+            }, 6000);
         }
     });
 
@@ -189,3 +202,4 @@ window.addEventListener("load", () => { // WORK
         updateButtons();
     }, 31000);
 });
+

@@ -6,64 +6,122 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="context">
-            <h1>mày đã bùn 117 lần</h1>
-            <p>... trong năm nay. Mày xứng đáng nhận được danh hiệu người đàn bà có cây cà lem si cu la.</p>
+    <div class="sn">
+        <div class="i">
+            <div class="text">
+                <h1>Chúc mừng sinh nhật!</h1>
+                <p>Chào bạn Tâm của t, nếu tính theo giờ Việt Nam thì mày già được 16 tuổi 15 tiếng rồi =))). Nhưng mà thôi, bạn đang ở Mỹ nên cứ tính theo giờ Mỹ đi hâhha. Nay nhân ngày 31/12… ê khoan, nếu d thì mày 16 hay 17 tuổi??? Tao tính kiểu năm mới là 1 tuổi, sinh nhật là 1 tuổi mới á =))). Ngày sinh nhật đặc biệt ghê, đẻ sớm tí nữa là mày thành chị t r =)) (ê nghe ghê quá). <br>
+                    Thôi kệ, nhân dịp sinh nhật bạn cũng như là giao thừa chuẩn bị năm mới, chúc bạn Như Tâm của tớ tuổi mới, tràn đầy sức sống, thọ lâu trăm tuổi, hạnh phúc viên mãn, con cháu đầy đàn, quen được anh nào đẹp trai (như tao, đm tao đẹp vãi 😍), học giỏi sớm đỗ Ha Vớt Sì tan phọt, kệ mẹ mày mày vô trường nào t đ quan tâm 😎. <br>
+                    Đời đâu có dễ bước vững, nên chúc bạn luôn luôn mạnh mẽ vượt qua khó khăn. Tuổi mới bớt gặp mấy thể loại chống lại tiêu chuẩn xã hội, mong bạn không khóc khi nghĩ về những kỉ niệm cũ (quên người cũ dùm). Chúc bạn sớm tìm được “bến đỗ” (ê nghe giống t tiễn m đi lấy chồng quá 😊), chúc bạn mãi mãi hoà hợp, hạnh phúc bên gia đình. <br>
+                    Ê cái này hơi ích kỷ nhưng mà, chúc bạn sớm về Việt Nam, tới hồi đó thực hiện lời hứa đập cửa nhà mày lúc 3h sáng 😍 hihi. Học giỏi sớm về Việt Nam. <br>
+                    À, năm mới an lành. <br>
+                    Quys bạn nhất (từ tận đáy l). <br>
+                    Thân gửi, raydzaisiucapvjppro.</p>
+            </div>
+            <div class="media">
+                <img src="" alt="">
+                <div class="audio-player">
+                    <button id="play-btn">Nghe cái này điii</button>
+                    <span id="time-display">0:00 / 0:00</span>
+                    <audio id="audio" src="../media/happi.m4a"></audio>
+                </div>
+            </div>
         </div>
-        <p id="icon">😔</p>
     </div>
+    
+
     <style>
         html, body {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
 
-        @font-face {
-            font-family: 'Bagel';
-            src: url('../media/font/DFVN-Bagel-Fat-One.otf');
-        }
+.i {
+    display: flex; /* Sử dụng flexbox để xếp các phần tử ngang hàng */
+    justify-content: space-between; /* Tạo khoảng cách giữa các phần tử */
+    align-items: flex-start; /* Căn chỉnh các phần tử trên cùng một hàng */
+    width: 90%;
+    margin: auto;
+}
 
-        @font-face {
-            font-family: 'BeauSans';
-            src: url('../media/font/BT-BeauSans-Regular.ttf');
-        }
+.text {
+    width: 60%;
+    padding: 0;
+    margin: 0;
+}
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            transform: translateY(-3vw);
-        }
+.media {
+    width: 35%; /* Đặt chiều rộng cho phần media */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 
-        #icon {
-            font-size: 15vw;
-            padding-left: 5%
-        }
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
-        .context h1{
-            font-family: "Bagel";
-            font-weight: 500;
-            font-size: 7vw;
-            margin-bottom: 5%;
-        }
+button {
+    background-color: transparent;
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
 
-        .context p {
-            font-family: "BeauSans";
-            font-weight: 400;
-            font-size: 1.2vw;
-            text-align: right;
-        }
+#time-display {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+
     </style>
+    <script>
+        const playBtn = document.getElementById('play-btn');
+const audio = document.getElementById('audio');
+const timeDisplay = document.getElementById('time-display');
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+function updateTime() {
+    const currentTime = formatTime(audio.currentTime);
+    const duration = formatTime(audio.duration || 0);
+    timeDisplay.textContent = `${currentTime} / ${duration}`;
+}
+
+playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '▶️ Đang phát:';
+        playBtn.classList.add('playing');
+    } else {
+        audio.pause();
+        playBtn.textContent = '⏹ Đã ngưng';
+        playBtn.classList.remove('playing');
+    }
+});
+
+audio.addEventListener('timeupdate', updateTime);
+
+audio.addEventListener('loadedmetadata', updateTime);
+
+    </script>
 </body>
 </html>
