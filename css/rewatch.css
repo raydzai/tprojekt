@@ -250,6 +250,7 @@ html, body {
     justify-content: center;
     font-family: 'Beau';
     opacity: 0;
+    z-index: 20;
 }
 
 .sn.show {
