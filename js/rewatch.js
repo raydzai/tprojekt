@@ -203,3 +203,41 @@ window.addEventListener("load", () => { // WORK
     }, 31000);
 });
 
+const playBtn = document.getElementById('play-btn');
+const audio = document.getElementById('audio');
+const timeDisplay = document.getElementById('time-display');
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+function updateTime() {
+    const currentTime = formatTime(audio.currentTime);
+    const duration = formatTime(audio.duration || 0);
+    timeDisplay.textContent = `${currentTime} / ${duration}`;
+}
+
+playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        // Dừng nhạc nền nếu đang phát
+        const backgroundAudio = document.querySelector('audio');
+        if (!backgroundAudio.paused) {
+            backgroundAudio.pause();  // Dừng nhạc nền
+            backgroundAudio.currentTime = 0;  // Đưa nhạc nền về đầu
+        }
+
+        audio.play();  // Phát nhạc mới
+        playBtn.textContent = '▶️ Đang phát:';
+        playBtn.classList.add('playing');
+    } else {
+        audio.pause();  // Tạm dừng nhạc
+        playBtn.textContent = '⏹ Đã ngưng';
+        playBtn.classList.remove('playing');
+    }
+});
+
+
+audio.addEventListener('timeupdate', updateTime);
+audio.addEventListener('loadedmetadata', updateTime);
