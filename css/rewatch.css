@@ -1,12 +1,15 @@
+/* Định nghĩa font-face với các định dạng dự phòng */
 @font-face {
     font-family: 'Bagel';
-    src: url('../media/font/DFVN-Bagel-Fat-One.otf');
+    src: url('../media/font/DFVN-Bagel-Fat-One.otf') format('opentype'),
 }
 
 @font-face {
     font-family: 'Beau';
-    src: url('../media/font/BT-BeauSans-Regular.ttf');
+    src: url('../media/font/BT-BeauSans-Regular.ttf') format('truetype'),
 }
+
+/* Reset cơ bản */
 html, body {
     position: fixed;
     background-color: black;
@@ -14,32 +17,36 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Ngăn cuộn */
 }
 
+/* Khu vực mở đầu */
 .starter {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 2;
     position: absolute;
-    height: 90%;
     width: 90%;
+    height: 90%;
     top: 50%;
     left: 50%;
-    text-align: center;
     transform: translate(-50%, -50%);
+    text-align: center;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    z-index: 2;
+}
+
+.starter h1, .starter p {
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .starter h1 {
     font-family: 'Bagel';
-    font-weight: 400;
     font-size: 10vw;
-    color: rgb(0, 0, 0);
+    color: black;
     margin: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
     opacity: 1;
     transform: translateY(0);
 }
@@ -50,9 +57,8 @@ html, body {
 }
 
 .starter p {
-    font-family: Beau;
+    font-family: 'Beau';
     font-size: 2vw;
-    transition: opacity 0.5s ease, transform 0.5s ease;
     opacity: 1;
     transform: translateY(0);
 }
@@ -62,62 +68,56 @@ html, body {
     transform: translateY(-10px);
 }
 
+/* Video nền */
 #video-container {
     position: relative;
     width: 100%;
-    height: 100%; 
+    height: 100%;
 }
 
 #background-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
+#background-video.show {
+    opacity: 1;
+}
+
+/* Hiệu ứng mờ nền */
 #video-container .blur {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.00001); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
-    z-index: -1; 
+    background: rgba(0, 0, 0, 0.00001); /* Hỗ trợ cho các trình duyệt không hỗ trợ blur */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
 }
 
-#background-video, .starter {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-#background-video.show, .starter.show {
-    opacity: 1;
-}
-
-.starter.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-out;}
-
+/* Container nội dung */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    position: absolute; 
-    top: 50%; 
-    left: 50%;  
-    transform: translate(-50%, -55%);  
-    z-index: 5;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    z-index: 5;
 }
 
 .container.show {
@@ -133,24 +133,19 @@ html, body {
     width: 50%;
 }
 
-.context h1{
-    font-family: "Bagel";
-    font-weight: 500;
+.context h1 {
+    font-family: 'Bagel';
     font-size: 7vw;
     margin-bottom: 5%;
 }
 
 .context p {
-    font-family: "Beau";
-    font-weight: 400;
+    font-family: 'Beau';
     font-size: 1.2vw;
     text-align: right;
 }
 
-.navigation.hidden {
-    display: none;
-}
-
+/* Điều hướng */
 .navigation {
     position: absolute;
     top: 50%;
@@ -159,6 +154,10 @@ html, body {
     justify-content: space-between;
     transform: translateY(-50%);
     z-index: 6;
+}
+
+.navigation.hidden {
+    display: none;
 }
 
 .navigation button {
@@ -179,4 +178,10 @@ html, body {
 
 .container.show + .navigation button {
     opacity: 1;
+}
+
+/* Trạng thái mờ dần */
+.starter.fade-out, .container.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
 }
