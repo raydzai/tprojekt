@@ -62,7 +62,7 @@ const quo = [
 const emo = ['😊', '😭', '😂', '😱', '🤢', '😤', '😡', '😍', '😡', '😎', '🤯', '😴'];
 
 document.addEventListener("DOMContentLoaded", () => {
-    const video = document.getElementById("background-video");
+    const video = document.querySelector("#background-video");
     const starter = document.querySelector(".starter");
     const container = document.querySelector(".container");
     const hx1 = document.querySelector(".container h1");
