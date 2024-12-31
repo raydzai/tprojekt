@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButton = document.getElementById("next");
     setTimeout(() => {
         video.classList.add("show");
+        console.log("show video");
     }, 1000);
     
     setTimeout(() => {
