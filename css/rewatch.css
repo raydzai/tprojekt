@@ -2,11 +2,15 @@
 @font-face {
     font-family: 'Bagel';
     src: url('../media/font/DFVN-Bagel-Fat-One.otf') format('opentype'),
+         url('../media/font/DFVN-Bagel-Fat-One.woff2') format('woff2'),
+         url('../media/font/DFVN-Bagel-Fat-One.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Beau';
     src: url('../media/font/BT-BeauSans-Regular.ttf') format('truetype'),
+         url('../media/font/BT-BeauSans-Regular.woff2') format('woff2'),
+         url('../media/font/BT-BeauSans-Regular.woff') format('woff');
 }
 
 /* Reset cơ bản */
