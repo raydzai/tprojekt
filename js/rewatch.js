@@ -9,9 +9,17 @@ if (/Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
 }
 
 const au = new Request('../media/hoahdsf.mp3');
+const b = new Request('../media/cont/hihi.mp3');
+const ply = new Request('../media/rewatch/background.webm')
 au.volume = 0.4;
 
 fetch(au).then(response => {
+    console.log('Audio preloaded');
+});
+fetch(ply).then(response => {
+    console.log('Audio preloaded');
+});
+fetch(b).then(response => {
     console.log('Audio preloaded');
 });
 
