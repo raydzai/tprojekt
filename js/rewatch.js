@@ -1,17 +1,29 @@
-function changeh1(s) {
+if (/Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent)) {
+    document.body.style.backgroundColor = "white";
+    document.body.style.display = "flex";
+    document.body.style.justifyContent = "center";
+    document.body.style.alignItems = "center";
+    document.body.style.height = "100vh";
+    document.body.style.margin = "0";
+    document.body.innerHTML = "<h1 style='color: black; text-align: center;'>Truy cập từ thiết bị di động không được phép.</h1>";
+}
+
+function changeh1(s){
     const h1 = document.querySelector(".starter h1");
     h1.classList.add("hidden");
     setTimeout(() => {
         h1.innerHTML = s;
+
         h1.classList.remove("hidden");
     }, 500);
 }
 
-function changep(s) {
+function changep(s){
     const p = document.querySelector(".starter p");
     p.classList.add("hidden");
     setTimeout(() => {
         p.innerHTML = s;
+
         p.classList.remove("hidden");
     }, 500);
 }
@@ -31,6 +43,7 @@ const typ = [
     "đi ngủ <br>42 lần"
 ];
 
+  
 const quo = [
     'Mày xứng đáng nhận danh hiệu Chim cu hay cười =)))). Mong bạn tuổi mới cười nhiều hơn. bAi.', 
     'Mày xứng đáng với danh hiệu Chúa tể nước mắt :)). Khóc gì khóc lắm, tuổi mới bớt khóc dùm.', 
@@ -45,7 +58,7 @@ const quo = [
     "Tạm biệt chứ đừng vĩnh biệt. Xin cảm ơn bạn đã đồng hành!",
     "Mất dạy vc, đang nhắn là đi ngủ, cccccccccccccccc (à quên t cũng hay d hihi)"
 ];
-
+  
 const emo = ['😊', '😭', '😂', '😱', '🤢', '😤', '😡', '😍', '😡', '😎', '🤯', '😴'];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -58,10 +71,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const navigation = document.querySelector(".navigation");
     const prevButton = document.getElementById("prev");
     const nextButton = document.getElementById("next");
-    let currentIndex = 0;
+    setTimeout(() => {
+        video.classList.add("show");
+    }, 1000);
+    
+    setTimeout(() => {
+        starter.classList.add("show");
+    }, 2000);
 
-    const showElement = (element) => element.classList.add("show");
-    const hideElement = (element) => element.classList.add("fade-out");
+    setTimeout(() => {
+        changeh1("Chà, nhanh nhỉ?"); 
+        changep("Một năm đã trôi qua rồi đó, mà mặt mày vẫn như mặt l!!")
+    }, 10000);
+
+    setTimeout(() => {
+        changeh1("Xem lại nhé?");
+        changep("Xem lại mày với tao đã làm gì trong năm qua =)))))");
+    }, 18000);
+
+    setTimeout(() => {
+        starter.classList.add("fade-out");
+    }, 25000);  
+
+    setTimeout(() => {
+        changeh1("Năm qua, mày đã...")
+        changep("đã... ??")
+        starter.classList.remove("fade-out");
+        starter.classList.add("show");
+    }, 27000);
+
+    setTimeout(() => {
+        starter.classList.add("fade-out");
+    }, 30000);  
+    
+    setTimeout(() => {
+        container.classList.add("show");
+        // Sử dụng setTimeout để cho navigation xuất hiện sau container
+        setTimeout(() => {
+            navigation.classList.remove("hidden");
+        }, 1000); // Đảm bảo navigation xuất hiện sau 1 giây (hoặc thời gian bạn muốn)
+    }, 31000);
+    
+    
+    let currentIndex = 0;
 
     const updateContent = (index) => {
         hx1.innerHTML = `mày ${typ[index]}`;
@@ -71,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateButtons = () => {
         prevButton.disabled = currentIndex === 0;
+
         if (currentIndex === typ.length - 1) {
             nextButton.innerHTML = "✓";
             nextButton.classList.add("finish");
@@ -80,13 +133,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    const showContainer = () => {
+        container.classList.remove("fade-out");
+        container.classList.add("show");
+    };
+
     const transitionEffect = () => {
         container.classList.remove("show");
         container.classList.add("fade-out");
         setTimeout(() => {
-            container.classList.remove("fade-out");
-            container.classList.add("show");
-        }, 500);
+            showContainer();
+        }, 500); // Delay to sync with fade-out
     };
 
     prevButton.addEventListener("click", () => {
@@ -105,31 +162,28 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => updateContent(currentIndex), 500);
             updateButtons();
         } else if (currentIndex === typ.length - 1) {
-            hideElement(container);
-            hideElement(navigation);
+            container.classList.add("fade-out");
+            setTimeout(() => {
+                container.style.display = "none";
+                navigation.style.display = "none";
+            }, 500);
         }
     });
 
-    // Start initial animations
-    setTimeout(() => showElement(video), 1000);
-    setTimeout(() => showElement(starter), 2000);
     setTimeout(() => {
-        changeh1("Chà, nhanh nhỉ?");
-        changep("Một năm đã trôi qua rồi đó, mà mặt mày vẫn như mặt l!!");
-    }, 10000);
+        video.classList.add("show");
+    }, 1000);
+
     setTimeout(() => {
-        changeh1("Xem lại nhé?");
-        changep("Xem lại mày với tao đã làm gì trong năm qua =)))))");
-    }, 18000);
-    setTimeout(() => hideElement(starter), 25000);
+        starter.classList.add("show");
+    }, 2000);
+
     setTimeout(() => {
-        changeh1("Năm qua, mày đã...");
-        changep("đã... ??");
-        showElement(starter);
-    }, 27000);
-    setTimeout(() => hideElement(starter), 30000);
+        starter.classList.add("fade-out");
+    }, 25000);
+
     setTimeout(() => {
-        showElement(container);
+        container.classList.add("show");
         navigation.classList.remove("hidden");
         updateContent(currentIndex);
         updateButtons();
