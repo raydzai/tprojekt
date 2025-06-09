@@ -1,2 +1,2 @@
-Happy Birthday!
-Does not work with phone, please use your PC/Laptop to have access.
+# Cái này cho Như Tâm
+Chỉ mới phát triển trên phiên bản máy tính, và dành riêng cho bạn của tui. 
